@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})
-@Accessors(fluent = true, chain = true)
+@Accessors(chain = true)
 public class Client {
 
     private String id;

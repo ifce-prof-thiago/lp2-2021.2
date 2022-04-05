@@ -14,9 +14,9 @@ public class CreateClientUS {
         // Retornar o cliente salvo
 
         return client
-                .id(UUID.randomUUID().toString())
-                .password(client.password().toUpperCase())
-                .enabled(true);
+                .setId(UUID.randomUUID().toString())
+                .setPassword(client.getPassword().toUpperCase())
+                .setEnabled(true);
     }
 
 }
