@@ -1,13 +1,11 @@
 package br.ifce.lp2.core.stories.clients;
 
 import br.ifce.lp2.core.domain.Client;
-import br.ifce.lp2.core.ports.in.clients.CreateClientPort;
 
 import java.util.UUID;
 
-public class CreateClientUS implements CreateClientPort {
+public class CreateClientUS {
 
-    @Override
     public Client execute(Client client) {
 
         // Criptografar a senha do cliente
