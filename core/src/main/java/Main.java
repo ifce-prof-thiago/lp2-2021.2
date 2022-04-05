@@ -1,9 +1,7 @@
 import br.ifce.lp2.core.domain.Client;
 import br.ifce.lp2.core.domain.Product;
-import br.ifce.lp2.core.ports.in.clients.CreateClientPort;
-import br.ifce.lp2.core.ports.in.clients.CreateProductPort;
 import br.ifce.lp2.core.stories.clients.CreateClientUS;
-import br.ifce.lp2.core.stories.clients.CreateProductUS;
+import br.ifce.lp2.core.stories.products.CreateProductUS;
 
 import java.math.BigDecimal;
 
@@ -12,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        CreateClientPort createClient = new CreateClientUS();
+        var createClient = new CreateClientUS();
 
         var client = Client.create()
                 .name("Thiago")
@@ -27,7 +25,7 @@ public class Main {
         System.out.println(client.password());
         System.out.println(client.enabled());
 
-        CreateProductPort createProduct = new CreateProductUS();
+        var createProduct = new CreateProductUS();
 
         var product = Product.create()
                 .title("Notebook")
