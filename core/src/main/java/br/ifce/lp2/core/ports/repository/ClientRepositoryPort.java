@@ -2,6 +2,7 @@ package br.ifce.lp2.core.ports.repository;
 
 import br.ifce.lp2.core.domain.Client;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ClientRepositoryPort {
@@ -12,4 +13,7 @@ public interface ClientRepositoryPort {
 
     Optional<Client> getById(String id);
 
+    List<Client> getAll();
+
+    Client findById(String id);
 }

@@ -3,7 +3,7 @@ package br.ifce.lp2.core.stories.clients;
 import br.ifce.lp2.core.domain.Client;
 import br.ifce.lp2.core.ports.repository.ClientRepositoryPort;
 
-public record CreateClientUS(ClientRepositoryPort repository) {
+public record CreateClientStory(ClientRepositoryPort repository) {
 
     public Client execute(Client client) {
 

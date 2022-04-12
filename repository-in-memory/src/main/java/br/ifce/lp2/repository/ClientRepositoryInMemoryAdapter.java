@@ -3,10 +3,7 @@ package br.ifce.lp2.repository;
 import br.ifce.lp2.core.domain.Client;
 import br.ifce.lp2.core.ports.repository.ClientRepositoryPort;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 public class ClientRepositoryInMemoryAdapter implements ClientRepositoryPort {
     
@@ -31,6 +28,16 @@ public class ClientRepositoryInMemoryAdapter implements ClientRepositoryPort {
         var client = DATA_BASE.get(id);
 
         return Optional.ofNullable(client);
+    }
+
+    @Override
+    public List<Client> getAll() {
+        return new ArrayList<>(DATA_BASE.values());
+    }
+
+    @Override
+    public Client findById(String id) {
+        return DATA_BASE.get(id);
     }
 
     public static Map<String, Client> getDataBase() {
