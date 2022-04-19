@@ -14,7 +14,7 @@ public record CreateClientStory(ClientRepositoryPort repository) {
         // Enviar um e-mail com o token de ativação do cliente
         // Retornar o cliente salvo
 
-        client.setEnabled(false);
+//        client.setEnabled(false);
 
         return repository.save(client);
 

@@ -8,7 +8,6 @@ import br.ifce.lp2.repository.ClientRepositoryInMemoryAdapter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RequestMapping("clients")
 @RestController
