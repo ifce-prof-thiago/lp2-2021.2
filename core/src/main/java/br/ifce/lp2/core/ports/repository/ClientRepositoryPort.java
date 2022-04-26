@@ -16,4 +16,5 @@ public interface ClientRepositoryPort {
     List<Client> getAll();
 
     Client findById(String id);
+
 }

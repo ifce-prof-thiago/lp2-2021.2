@@ -1,30 +1,36 @@
 package br.ifce.lp2.api.controller.clients;
 
 import br.ifce.lp2.core.domain.Client;
-import br.ifce.lp2.core.stories.clients.CreateClientStory;
 import br.ifce.lp2.core.stories.clients.GetAllClientsStory;
-import br.ifce.lp2.core.stories.clients.GetClientByIdStory;
-import br.ifce.lp2.repository.ClientRepositoryInMemoryAdapter;
+import br.ifce.lp2.core.stories.clients.create.CreateClientInput;
+import br.ifce.lp2.core.stories.clients.create.CreateClientOutput;
+import br.ifce.lp2.core.stories.clients.create.ICreateClient;
+import br.ifce.lp2.core.stories.clients.find.by.id.FindByIdOutput;
+import br.ifce.lp2.core.stories.clients.find.by.id.IFindByIdClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RequestMapping("clients")
 @RestController
-public class ClientController {
+public record ClientController(
+        ICreateClient createClientStory,
+        GetAllClientsStory getAllClientsStory,
+        IFindByIdClient findByIdClient) {
 
     @PostMapping
-    public Client post(@RequestBody Client client) {
-        return new CreateClientStory(new ClientRepositoryInMemoryAdapter()).execute(client);
+    public CreateClientOutput post(@RequestBody CreateClientInput input) {
+        return createClientStory.execute(input);
     }
 
     @GetMapping
     public List<Client> getAll() {
-        return new GetAllClientsStory(new ClientRepositoryInMemoryAdapter()).execute();
+        return getAllClientsStory.execute();
     }
 
     @GetMapping("{id}")
-    public Client getById(@PathVariable String id) {
-        return new GetClientByIdStory(new ClientRepositoryInMemoryAdapter()).execute(id);
+    public FindByIdOutput getById(@PathVariable String id) {
+        return findByIdClient.execute(id);
     }
+
 }

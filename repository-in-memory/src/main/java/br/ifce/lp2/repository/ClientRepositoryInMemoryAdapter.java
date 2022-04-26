@@ -2,9 +2,11 @@ package br.ifce.lp2.repository;
 
 import br.ifce.lp2.core.domain.Client;
 import br.ifce.lp2.core.ports.repository.ClientRepositoryPort;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class ClientRepositoryInMemoryAdapter implements ClientRepositoryPort {
     
     private final static Map<String, Client> DATA_BASE = new HashMap<>();
@@ -16,9 +18,9 @@ public class ClientRepositoryInMemoryAdapter implements ClientRepositoryPort {
 
     @Override
     public Client save(Client client) {
-        client.setId(UUID.randomUUID().toString());
+        client.id(UUID.randomUUID().toString());
         
-        DATA_BASE.put(client.getId(), client);
+        DATA_BASE.put(client.id(), client);
 
         return client;
     }
