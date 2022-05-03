@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="repository-mongo" />
         <module name="core" />
-        <module name="repository-in-memory" />
         <module name="api" />
+        <module name="repository-in-memory" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +19,7 @@
       <module name="api" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="repository-in-memory" options="-parameters" />
+      <module name="repository-mongo" options="-parameters" />
     </option>
   </component>
 </project>
