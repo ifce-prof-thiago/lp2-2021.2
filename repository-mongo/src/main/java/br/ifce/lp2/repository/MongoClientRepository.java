@@ -2,11 +2,15 @@ package br.ifce.lp2.repository;
 
 import br.ifce.lp2.core.domain.Client;
 import br.ifce.lp2.core.ports.repository.ClientRepositoryPort;
+import br.ifce.lp2.core.stories.clients.find.by.filter.FilterClientInput;
 import com.mongodb.client.MongoClients;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -54,6 +58,34 @@ public record MongoClientRepository() implements ClientRepositoryPort {
         final var query = new Query();
         return mongoOperations.find(query, projection, COLLECTION_NAME);
 
+    }
+
+    @Override
+    public <T> List<T> findBy(FilterClientInput input, Class<T> projection) {
+
+        final var page = PageRequest.of(
+                input.page(),
+                input.perPage(),
+                Sort.by(Sort.Direction.fromString(input.direction()), input.sortBy())
+        );
+
+        final var query = new Query().with(page);
+
+        if (StringUtils.hasLength(input.search())) {
+
+            final var pattern = input.search();
+
+            final var where = where("enabled").is(false)
+                    .orOperator(
+                            where("name").regex(pattern, "i"),
+                            where("email").regex(pattern, "i")
+                    );
+
+            query.addCriteria(where);
+
+        }
+
+        return mongoOperations.find(query, projection, COLLECTION_NAME);
     }
 
 }

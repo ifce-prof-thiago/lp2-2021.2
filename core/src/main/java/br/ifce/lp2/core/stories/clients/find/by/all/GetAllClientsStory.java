@@ -9,9 +9,9 @@ import java.util.List;
 @Component
 public record GetAllClientsStory(ClientRepositoryPort repository) {
 
-    public List<FindClientAllOutputV2> execute() {
+    public List<FindClientAllOutput> execute() {
 
-        return repository.getAll(FindClientAllOutputV2.class);
+        return repository.getAll(FindClientAllOutput.class);
 
     }
 
