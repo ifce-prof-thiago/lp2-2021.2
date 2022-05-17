@@ -11,5 +11,12 @@
 
     <artifactId>repository-mongo</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>br.edu.lp2.core</groupId>
+            <artifactId>core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>

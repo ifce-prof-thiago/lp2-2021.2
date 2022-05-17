@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>br.edu.lp2</groupId>
-            <artifactId>repository-in-memory</artifactId>
+            <artifactId>repository-mongo</artifactId>
             <version>1.0.0</version>
         </dependency>
 

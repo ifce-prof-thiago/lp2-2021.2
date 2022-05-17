@@ -5,10 +5,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public record FindByIdClientStory(ClientRepositoryPort repository) implements IFindByIdClient {
-
     @Override
     public FindByIdOutput execute(String id) {
-        return FindByIdOutput.fromClient(repository.findById(id));
+        return FindByIdOutput.fromClient(repository.findById(id).get());
     }
 
 }

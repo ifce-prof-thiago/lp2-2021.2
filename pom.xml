@@ -19,7 +19,6 @@
     <modules>
         <module>core</module>
         <module>api</module>
-        <module>repository-in-memory</module>
         <module>repository-mongo</module>
     </modules>
 

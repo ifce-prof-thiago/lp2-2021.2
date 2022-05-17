@@ -1,7 +1,9 @@
 package br.ifce.lp2.api.controller.clients;
 
 import br.ifce.lp2.core.domain.Client;
-import br.ifce.lp2.core.stories.clients.GetAllClientsStory;
+import br.ifce.lp2.core.stories.clients.find.by.all.FindClientAllOutput;
+import br.ifce.lp2.core.stories.clients.find.by.all.FindClientAllOutputV2;
+import br.ifce.lp2.core.stories.clients.find.by.all.GetAllClientsStory;
 import br.ifce.lp2.core.stories.clients.create.CreateClientInput;
 import br.ifce.lp2.core.stories.clients.create.CreateClientOutput;
 import br.ifce.lp2.core.stories.clients.create.ICreateClient;
@@ -24,7 +26,7 @@ public record ClientController(
     }
 
     @GetMapping
-    public List<Client> getAll() {
+    public List<FindClientAllOutputV2> getAll() {
         return getAllClientsStory.execute();
     }
 
