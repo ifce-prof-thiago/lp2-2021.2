@@ -1,4 +1,4 @@
-package br.ifce.lp2.repository;
+package br.ifce.lp2.repository.customer;
 
 import br.ifce.lp2.domain.clients.Client;
 import br.ifce.lp2.domain.clients.ClientGateway;

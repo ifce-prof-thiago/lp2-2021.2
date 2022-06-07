@@ -8,7 +8,7 @@ public record CreateClientStory(ClientGateway gateway) implements ICreateClient 
 
     @Override
     public CreateClientOutput execute(CreateClientInput input) {
-        return CreateClientOutput.fromClient(gateway.save(input.toClient()));
+        return CreateClientOutput.from(gateway.save(input.toClient()));
     }
 
 }

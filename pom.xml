@@ -21,6 +21,7 @@
         <module>api</module>
         <module>repository-mongo</module>
         <module>application</module>
+        <module>infrasctructure</module>
     </modules>
 
     <properties>
