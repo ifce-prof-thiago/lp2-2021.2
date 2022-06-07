@@ -9,14 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>repository-mongo</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>br.ifce.lp2.domain</groupId>
-            <artifactId>domain</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-    </dependencies>
+    <groupId>br.ifce.lp2.domain</groupId>
+    <artifactId>domain</artifactId>
 
 </project>

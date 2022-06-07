@@ -11,15 +11,16 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>br.edu.lp2</groupId>
+    <groupId>br.ifce.lp2</groupId>
     <artifactId>selling-products-online</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
 
     <modules>
-        <module>core</module>
+        <module>domain</module>
         <module>api</module>
         <module>repository-mongo</module>
+        <module>application</module>
     </modules>
 
     <properties>

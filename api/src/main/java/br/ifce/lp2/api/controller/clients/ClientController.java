@@ -1,15 +1,13 @@
 package br.ifce.lp2.api.controller.clients;
 
-import br.ifce.lp2.core.stories.clients.find.by.all.FindClientAllOutput;
-import br.ifce.lp2.core.stories.clients.find.by.all.GetAllClientsStory;
-import br.ifce.lp2.core.stories.clients.create.CreateClientInput;
-import br.ifce.lp2.core.stories.clients.create.CreateClientOutput;
-import br.ifce.lp2.core.stories.clients.create.ICreateClient;
-import br.ifce.lp2.core.stories.clients.find.by.filter.FilterClientInput;
-import br.ifce.lp2.core.stories.clients.find.by.filter.FilterClientOutput;
-import br.ifce.lp2.core.stories.clients.find.by.filter.FilterClientsStory;
-import br.ifce.lp2.core.stories.clients.find.by.id.FindByIdOutput;
-import br.ifce.lp2.core.stories.clients.find.by.id.IFindByIdClient;
+import br.ifce.lp2.application.clients.create.CreateClientInput;
+import br.ifce.lp2.application.clients.create.CreateClientOutput;
+import br.ifce.lp2.application.clients.create.ICreateClient;
+import br.ifce.lp2.application.clients.find.by.filter.FilterClientOutput;
+import br.ifce.lp2.application.clients.find.by.filter.FilterClientsStory;
+import br.ifce.lp2.application.clients.find.by.id.FindByIdOutput;
+import br.ifce.lp2.application.clients.find.by.id.IFindByIdClient;
+import br.ifce.lp2.domain.clients.ClientQuery;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +33,7 @@ public record ClientController(
             @RequestParam(defaultValue = "name") final String sortBy
     ) {
 
-        final var input = new FilterClientInput(
+        final var input = new ClientQuery(
                 page,
                 perPage,
                 search,
