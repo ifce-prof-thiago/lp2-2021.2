@@ -1,13 +1,13 @@
 package br.ifce.lp2.application.clients.create;
 
-import br.ifce.lp2.domain.clients.ClientGateway;
+import br.ifce.lp2.domain.customer.CustomerGateway;
 import org.springframework.stereotype.Component;
 
 @Component
-public record CreateClientStory(ClientGateway gateway) implements ICreateClient {
+public record CreateClientStory(CustomerGateway gateway) implements ICreateClient {
 
     @Override
-    public CreateClientOutput execute(CreateClientInput input) {
+    public CreateClientOutput execute(CreateCustomerInput input) {
         return CreateClientOutput.from(gateway.save(input.toClient()));
     }
 

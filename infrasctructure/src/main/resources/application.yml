@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://lp2:dzsFtjcWVm9WZFe0@cluster0.0dxsu.mongodb.net/lp2
+      auto-index-creation: true
+      connect-timeout: 250
+
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG

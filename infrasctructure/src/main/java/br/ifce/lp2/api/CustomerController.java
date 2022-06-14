@@ -1,26 +1,26 @@
-package br.ifce.lp2.api.controller.clients;
+package br.ifce.lp2.api;
 
-import br.ifce.lp2.application.clients.create.CreateClientInput;
+import br.ifce.lp2.application.clients.create.CreateCustomerInput;
 import br.ifce.lp2.application.clients.create.CreateClientOutput;
 import br.ifce.lp2.application.clients.create.ICreateClient;
 import br.ifce.lp2.application.clients.find.by.filter.FilterClientOutput;
 import br.ifce.lp2.application.clients.find.by.filter.FilterClientsStory;
 import br.ifce.lp2.application.clients.find.by.id.FindByIdOutput;
 import br.ifce.lp2.application.clients.find.by.id.IFindByIdClient;
-import br.ifce.lp2.domain.clients.ClientQuery;
+import br.ifce.lp2.domain.customer.CustomerQuery;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("clients")
+@RequestMapping("customers")
 @RestController
-public record ClientController(
+public record CustomerController(
         ICreateClient createClientStory,
         FilterClientsStory filterClientsStory,
         IFindByIdClient findByIdClient) {
 
     @PostMapping
-    public CreateClientOutput post(@RequestBody CreateClientInput input) {
+    public CreateClientOutput post(@RequestBody CreateCustomerInput input) {
         return createClientStory.execute(input);
     }
 
@@ -33,7 +33,7 @@ public record ClientController(
             @RequestParam(defaultValue = "name") final String sortBy
     ) {
 
-        final var input = new ClientQuery(
+        final var input = new CustomerQuery(
                 page,
                 perPage,
                 search,

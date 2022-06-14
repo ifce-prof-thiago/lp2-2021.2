@@ -1,9 +1,8 @@
-package br.ifce.lp2.repository.products;
+package br.ifce.lp2.products;
 
 import br.ifce.lp2.domain.products.Product;
 import br.ifce.lp2.domain.products.ProductGateway;
 import br.ifce.lp2.domain.products.ProductQuery;
-import br.ifce.lp2.repository.connection.MongoConnection;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class MongoProductGateway implements ProductGateway {
+public class ProductMongoGateway implements ProductGateway {
 
     private final static String COLLECTION_NAME = "product";
 
-    private static MongoOperations mongoOperations = MongoConnection.getConnection();
+    private final MongoOperations mongoOperations;
+
+    public ProductMongoGateway(MongoOperations mongoOperations) {
+        this.mongoOperations = mongoOperations;
+    }
 
     @Override
     public Product save(Product product) {

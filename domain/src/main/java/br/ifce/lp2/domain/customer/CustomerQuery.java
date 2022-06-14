@@ -1,6 +1,6 @@
-package br.ifce.lp2.domain.clients;
+package br.ifce.lp2.domain.customer;
 
-public record ClientQuery(
+public record CustomerQuery(
         int page,
         int perPage,
         String search,
