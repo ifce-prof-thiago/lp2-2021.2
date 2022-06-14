@@ -32,6 +32,6 @@ public class ProductMongoGateway implements ProductGateway {
 
     @Override
     public <T> List<T> findBy(ProductQuery query, Class<T> projection) {
-        return null;
+        return mongoOperations.findAll(projection, COLLECTION_NAME);
     }
 }

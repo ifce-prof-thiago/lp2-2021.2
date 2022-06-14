@@ -21,21 +21,19 @@ public class Product {
         this.coverPhoto = coverPhoto;
         this.price = price;
         this.qtyInventory = qtyInventory;
+
+        this.validate();
     }
 
     public static Product create(String name, String coverPhoto, BigDecimal price, long qtyInventory) {
 
-        final var aProduct = new Product(
+        return new Product(
                 null,
                 name,
                 coverPhoto,
                 price,
                 qtyInventory
         );
-
-        aProduct.validate();
-
-        return aProduct;
     }
 
     public Product update(String name, String coverPhoto, BigDecimal price, long qtyInventory) {
